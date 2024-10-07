@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+body {
+    background-image: url('/assets/images/sfondo_auto.jpg');
+    backdrop-filter: blur(8px);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    min-height: 100vh; 
+    margin: 0; 
+}

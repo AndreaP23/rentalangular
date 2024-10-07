@@ -1,0 +1,38 @@
+table {
+    width: 100%; 
+    table-layout: auto;
+    border-collapse: collapse;
+    background-color: white; 
+}
+
+th, td {
+    padding: 12px; 
+    text-align: left; 
+    border: 1px solid #ddd; 
+}
+
+th {
+    background-color: #f8f9fa; 
+    color: #343a40; 
+}
+
+tr:hover {
+    background-color: #f1f1f1; 
+}
+
+table {
+    width: 100%;
+    /* Altre proprietà di stile */
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .table-container {
+    max-height: 400px; 
+    overflow-y: auto;  
+  }
+  
