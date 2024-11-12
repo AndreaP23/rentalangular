@@ -1,12 +1,68 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th *ngFor="let column of columnsConfig">{{ column.label }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of items">
-      <td *ngFor="let key of getKeys()">{{ item[key] }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>{{ title }}</h2>
+    <button 
+      *ngFor="let action of generalActions" 
+      class="btn" 
+      [class]="action.class" 
+      (click)="action.callback()"> <!-- Nessun argomento passato per azioni generali -->
+      <i *ngIf="action.icon" class="{{ action.icon }}"></i> {{ action.label }}
+    </button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th *ngFor="let column of columnsConfig">{{ column.label }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td *ngFor="let column of columnsConfig">
+          <ng-container *ngIf="column.actions; else defaultCell">
+            <button
+              *ngFor="let action of column.actions"
+              [class]="action.class"
+              (click)="action.callback(item)"> <!-- Passa l'elemento corrente come argomento per le azioni di riga -->
+              {{ action.label }}
+            </button>
+          </ng-container>
+          <ng-template #defaultCell>
+            <ng-container *ngIf="column.key !== undefined">
+              {{ item[column.key!] }}
+            </ng-container>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<!-- Paginazione -->
+<nav *ngIf="totalPages > 0">
+  <ul class="pagination">
+    <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="i === currentPage">
+      <a class="page-link" (click)="onPageClick(i); $event.preventDefault()">{{ i + 1 }}</a>
+    </li>
+  </ul>
+</nav>
+
+ <!-- Paginazione con Precedente e Next preso da prenotazioni, implementa precedente e successivio -->
+ <!-- <nav *ngIf="totalElements > 0" class="d-flex justify-content-end mt-3">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage === 0">
+      <a class="page-link" (click)="onPageChange(currentPage - 1)">Precedente</a>
+    </li>
+
+    <li class="page-item" *ngFor="let i of getPaginationPages()"
+        [class.active]="i === currentPage">
+      <a class="page-link" (click)="onPageChange(i)">{{ i + 1 }}</a>
+    </li>
+
+    <li class="page-item" [class.disabled]="currentPage >= totalPages - 1">
+      <a class="page-link" (click)="onPageChange(currentPage + 1)">Successivo</a>
+    </li>
+  </ul>
+</nav>
+</div>-->
+</div>
+
+

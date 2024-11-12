@@ -3,7 +3,7 @@ import { GenericListComponent } from './generic-list.component';
 
 describe('GenericListComponent', () => {
   let component: GenericListComponent<any>; 
-  let fixture: ComponentFixture<GenericListComponent<any>>; // Corretto: deve chiudere il tipo generico con '>>'
+  let fixture: ComponentFixture<GenericListComponent<any>>; 
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

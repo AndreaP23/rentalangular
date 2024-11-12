@@ -9,4 +9,8 @@ body {
     background-position: center; 
     min-height: 100vh; 
     margin: 0; 
+    padding-bottom: 60px; /* Lascia uno spazio sufficiente per evitare sovrapposizione con il footer */
 }
+
+
+

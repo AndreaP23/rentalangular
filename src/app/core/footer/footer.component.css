@@ -1,0 +1,10 @@
+footer {
+    position: fixed;      /* Fissa il footer in fondo alla pagina */
+    bottom: 0;            /* Assicurati che sia ancorato alla parte inferiore della finestra */
+    width: 100%;          /* Assicurati che occupi tutta la larghezza */
+    z-index: 1;           /* Assicura che rimanga sopra altri contenuti, ma senza sovrapporsi */
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1); /* Aggiungi un'ombra leggera per la separazione visiva */
+}

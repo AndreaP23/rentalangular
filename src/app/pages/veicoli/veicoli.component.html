@@ -1,5 +1,10 @@
-<h1 class="text-center my-4">Veicoli Disponibili</h1>
-
 <div class="container">
-  <app-generic-list [items]="veicoli" [columnsConfig]="columnsConfig"></app-generic-list>
+  <app-generic-list 
+    [items]="veicoli"  
+    [columnsConfig]="columnsConfig" 
+    [title]="'Veicoli Disponibili'"
+    [totalPages]="totalPages"  
+    [currentPage]="currentPage"  
+    (pageChange)="onPageChange($event)">  
+  </app-generic-list>
 </div>

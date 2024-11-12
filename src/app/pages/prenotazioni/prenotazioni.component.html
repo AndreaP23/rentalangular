@@ -1,1 +1,13 @@
-<p>prenotazioni works!</p>
+<div class="container">
+  <!-- Lista Prenotazioni -->
+  <app-generic-list 
+    [items]="prenotazioni" 
+    [columnsConfig]="columnsConfig" 
+    [totalPages]="totalPages"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+    title="Prenotazioni Effettuate">
+  </app-generic-list>
+
+
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="white-box">
+    <h2>Modifica Prenotazione</h2>
+  
+    <form [formGroup]="prenotazioneForm" (ngSubmit)="onSalvaPrenotazione()">
+      <div class="form-group">
+        <label for="dataInizio">Data Inizio</label>
+        <input type="date" id="dataInizio" class="form-control" formControlName="dataInizio">
+        <div *ngIf="prenotazioneForm.get('dataInizio')?.invalid && prenotazioneForm.get('dataInizio')?.touched" class="text-danger">
+          Inserisci una data di inizio valida
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="dataFine">Data Fine</label>
+        <input type="date" id="dataFine" class="form-control" formControlName="dataFine">
+        <div *ngIf="prenotazioneForm.get('dataFine')?.invalid && prenotazioneForm.get('dataFine')?.touched" class="text-danger">
+          Inserisci una data di fine valida
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="note">Note</label>
+        <textarea id="note" class="form-control" formControlName="note" placeholder="Aggiungi una nota"></textarea>
+        <div *ngIf="prenotazioneForm.get('note')?.invalid && prenotazioneForm.get('note')?.touched" class="text-danger">
+          Inserisci una nota valida
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="prenotazioneForm.invalid">Salva Modifiche</button>
+      <button type="button" class="btn btn-secondary" (click)="onAnnulla()">Annulla</button>
+
+    </form>
+  </div>
+  </div>
+  
